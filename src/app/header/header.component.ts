@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  title = 'The Will Will Web';
-  subtitle = '記載著 Will 在網路世界的學習心得與技術分享!';
+  @Input()
+  title;
+
+  @Input()
+  subtitle;
+
   url = 'http://blog.miniasp.com/';
   count = 0;
 

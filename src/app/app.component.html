@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header [title]="title" [subtitle]="subtitle"></app-header>
 
 <!-- CONTAINER START-->
 <section class="container">
@@ -7,9 +7,16 @@
       <div id="ctl00_cphBody_divError"></div>
       <div id="ctl00_cphBody_PostList1_posts" class="posts">
 
-        <article class="post" id="post0"
-        *ngFor="let item of articles">
-          <header class="post-header">
+          <div [ngSwitch]="keyword">
+              <div *ngSwitchCase="'Mike'">output</div>
+              <div *ngSwitchCase="'Will'">output</div>
+              <div *ngSwitchCase="'Nobody'">output</div>
+              <div *ngSwitchDefault>output2</div>
+            </div>
+
+        <article class="post" id="post-{{ idx }}"
+          *ngFor="let item of articles; let idx = index; let first = first; let l = last; let odd = odd; let even = even">
+          <header class="post-header" [ngClass]="{bgHighlight: odd}">
             <h2 class="post-title">
               <a href="http://blog.miniasp.com/post/2016/04/30/Visual-Studio-Code-from-Command-Prompt-notes.aspx">
                 {{ item.title }}
