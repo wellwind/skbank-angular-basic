@@ -1,9 +1,4 @@
-import { 
-  Component, 
-  EventEmitter, 
-  Input, 
-  OnInit, 
-  Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-body',
@@ -12,16 +7,10 @@ import {
 })
 export class BodyComponent implements OnInit {
   @Input() keyword;
-  @Output() search = 
+  @Output() keywordChange = new EventEmitter();
+  @Output() search =
     new EventEmitter<any>();
 
-  buttonClick() {
-    this.isHighlight = !this.isHighlight;
-    this.fontSize = this.fontSize + 2;
-    this.search.emit(this.keyword);
-    // this.title = this.keyword;
-  }
-  
   isHighlight = false;
   fontSize = 12;
   person = {
@@ -101,9 +90,16 @@ export class BodyComponent implements OnInit {
 
   ngOnInit() {}
 
-  keywordChange($event, input: HTMLInputElement) {
+  emitKeywordChange($event, input: HTMLInputElement) {
+    this.keywordChange.emit(input.value);
     this.keyword = input.value;
   }
 
 
+  buttonClick() {
+    this.isHighlight = !this.isHighlight;
+    this.fontSize = this.fontSize + 2;
+    this.search.emit(this.keyword);
+    // this.title = this.keyword;
+  }
 }

@@ -141,7 +141,10 @@
         <div class="widget search">
           <div class="widget-content">
             <div id="searchbox">
-              <input type="text" placeholder="請輸入搜尋關鍵字" accesskey="s" #input [value]="keyword" (change)="keywordChange($event, input)"
+              <input type="text" placeholder="請輸入搜尋關鍵字" accesskey="s"
+                #input
+                [value]="keyword"
+                (keyup)="emitKeywordChange($event, input)"
                 [(ngModel)]="keyword">
               <input type="button" value="搜尋" id="searchbutton" (click)="buttonClick()">
               <div class="{{ isHighlight ? 'highlight' : '' }}">
