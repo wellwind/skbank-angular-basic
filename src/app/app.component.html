@@ -110,9 +110,25 @@
         <div class="widget search">
           <div class="widget-content">
             <div id="searchbox">
-              <input type="text" placeholder="請輸入搜尋關鍵字" accesskey="s"
-                [(ngModel)]="keyword">
-              <input type="button" value="搜尋" id="searchbutton"> {{ keyword }}
+              <input type="text"
+                placeholder="請輸入搜尋關鍵字"
+                accesskey="s"
+                #input
+                [value]="keyword"
+                (change)="keywordChange($event, input)"
+                [(ngModel)]="person.name">
+              <input type="button" value="搜尋"
+                id="searchbutton"
+                (click)="buttonClick()">
+              <div class=
+              "{{ isHighlight ? 'highlight' : '' }}">
+              {{ keyword }}
+              </div>
+              <div
+                [ngClass]="{highlight: isHighlight}"
+                [ngStyle]="{'font-size.px': fontSize}">
+                {{ keyword }}
+              </div>
             </div>
           </div>
         </div>
