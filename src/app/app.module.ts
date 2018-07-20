@@ -1,11 +1,13 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
+import { HeaderComponent } from './header/header.component';
 import { TopArticlesPipe } from './top-articles.pipe';
+
 
 
 
@@ -13,7 +15,8 @@ import { TopArticlesPipe } from './top-articles.pipe';
   declarations: [AppComponent, HeaderComponent, BodyComponent, TopArticlesPipe],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
