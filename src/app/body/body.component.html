@@ -12,7 +12,8 @@
           <div *ngSwitchDefault>output2</div>
         </div>
 
-        <article class="post" id="post-{{ idx }}" *ngFor="let item of articles; let idx = index; let first = first; let l = last; let odd = odd; let even = even">
+        <article class="post" id="post-{{ idx }}"
+          *ngFor="let item of articles | topArticles:3; let idx = index; let first = first; let l = last; let odd = odd; let even = even">
           <header class="post-header" [ngClass]="{bgHighlight: odd}">
             <h2 class="post-title">
               <a href="http://blog.miniasp.com/post/2016/04/30/Visual-Studio-Code-from-Command-Prompt-notes.aspx">
@@ -33,13 +34,16 @@
             </div>
           </header>
           <section class="post-body text">
+            <pre>
+              {{ item | json | uppercase }}
+            </pre>
             <div [innerHTML]="item.summary"></div>
             <a class="more" href="http://blog.miniasp.com/post/2016/04/30/Visual-Studio-Code-from-Command-Prompt-notes.aspx#continue">繼續閱讀</a> ...
           </section>
         </article>
 
         <!-- Article START-->
-        <article class="post" id="post0">
+        <!-- <article class="post" id="post0">
           <header class="post-header">
             <h2 class="post-title">
               <a href="http://blog.miniasp.com/post/2016/04/30/Visual-Studio-Code-from-Command-Prompt-notes.aspx">從命令提示字元中開啟 Visual Studio Code 如何避免顯示惱人的偵錯訊息</a>
@@ -126,7 +130,7 @@
             <p>...
               <a class="more" href="http://blog.miniasp.com/post/2016/03/14/ASPNET-MVC-Developer-Note-Part-28-Understanding-ModelState.aspx#continue">繼續閱讀</a> ...</p>
           </section>
-        </article>
+        </article> -->
         <!-- Article END-->
 
       </div>

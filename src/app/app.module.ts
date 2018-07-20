@@ -5,11 +5,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
+import { TopArticlesPipe } from './top-articles.pipe';
 
 
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, BodyComponent],
+  declarations: [AppComponent, HeaderComponent, BodyComponent, TopArticlesPipe],
   imports: [
     BrowserModule,
     FormsModule

@@ -88,7 +88,16 @@ export class BodyComponent implements OnInit {
     }
   ];
 
-  ngOnInit() {}
+  /**
+   *
+   */
+  constructor() {
+
+  }
+
+  ngOnInit() {
+    console.log(this.keyword);
+  }
 
   emitKeywordChange($event, input: HTMLInputElement) {
     this.keywordChange.emit(input.value);

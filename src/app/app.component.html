@@ -1,6 +1,6 @@
 <app-header [title]="title" [subtitle]="subtitle"></app-header>
 
-{{ keyword }}
+{{ keyword | uppercase }}
 <app-body
   [(keyword)]="keyword"
   (search)="doSearch($event)">
