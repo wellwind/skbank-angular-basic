@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = '[Hi!新光銀行]';
+  keyword = 'test';
+
+  keywordChange($event, input) {
+    this.keyword = input.value;
+  }
 }

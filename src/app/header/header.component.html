@@ -37,7 +37,9 @@
 
       <div class="pull-left">
         <h1>
-          <a href="{{ url }}" [title]="subtitle">{{ title }}</a>
+          <a [title]="subtitle" (click)="titleClick()">
+            {{ title }}
+          </a>
         </h1>
         <h3>{{ subtitle }}</h3>
       </div>
